@@ -9,10 +9,16 @@ public class ChatApp01 {
    String cellphoneNumber;
    
    //Username validation
+   //Username should contain an underscore
+   //Username should mot be longer than five characters
    public boolean checkUsername(String Username) {
        return Username.length()>=5 && Username.contains("_");
    }
        //Password validation
+       //Should contain at least eight characters 
+       //Contain a capital letter
+       //Should contain a number
+       //Should contain a special character
   public boolean checkPasswordComplexity(String Password) {
            boolean passwordNumber = Password.matches(".*\\d.*");
            boolean passwordSpecial = Password.matches(".*[^a-zA-Z0-9].*");
@@ -20,12 +26,17 @@ public class ChatApp01 {
        }
 
        //Cellphone number validation
+       //Should contain an international country code
+       //Number should be ten characters long
    public boolean checkCellphoneNumber(String cellphoneNumber) {
            return cellphoneNumber.startsWith("+27") && cellphoneNumber.length() ==12;
            
        }
        
        //Register user method
+       //Ensures that the password meets the requirements
+       //Ensures that the username meets the requirements
+       //Ensures that the cellphone number is the correct length and that it has an international code
        public String registerUser(String Username, String Password, String cellphoneNumber) {
          if (!checkUsername(Username)) {
              return "The username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
